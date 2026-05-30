@@ -1,0 +1,674 @@
+\documentclass[
+	a4paper,
+	parskip=half,
+    pagesize=auto,      		% schreibt die Papiergröße korrekt ins Ausgabedokument
+    listof=totoc,   		% Verzeichnisse im Inhaltsverzeichnis
+    bibliography=totoc,
+	11pt
+]{scrartcl}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{babelbib}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{amsmath,amssymb,amsthm,textcomp}
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage{listings}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{url}
+\usepackage{todonotes}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{float}
+\usepackage{oplotsymbl}
+\usepackage{atomicreactions}
+\usepackage[
+pdftitle={Atomic Reactions Package Introduction}, 
+pdfauthor={B. Michel Döhring, JLU Giessen},
+colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=gray,bookmarks=true,
+bookmarksopenlevel=2]{hyperref}
+\usepackage{geometry}
+\geometry{
+	nomarginpar,
+	left=30mm,right=20mm,top=20mm,bottom=20mm
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% colours for listings %%%%
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Style settings for listings %%%%
+\lstdefinestyle{mystyle}{
+language=[LaTeX],
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\linespread{1.3}
+
+\newcommand{\linia}{\rule{\linewidth}{0.5pt} \rule{\linewidth}{0.5pt}}
+
+% my own titles
+\makeatletter
+\renewcommand{\maketitle}{
+\begin{center}
+\vspace{2ex}
+{\huge \textsc{\@title}}
+\vspace{1ex}
+\\
+\linia\\
+\huge{\@date}\\
+\vspace{5ex}
+\@author\\ 
+E-Mail: \href{mailto:micheld.93@ gmail.com}{micheld.93@gmail.com}\\
+\vspace{10ex}
+\end{center}
+}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%----------%%%----------%%%----------%%%----------%%%
+
+\begin{document}
+
+\title{{\color[HTML]{FF0000} Atomic Reactions Package Introduction}}
+
+\author{B. Michel Döhring}
+
+\date{01/05/2026 (V1.0.1)}
+
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Table of Contents %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{multicols}{2}
+\tableofcontents
+\end{multicols}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% 1 1/2 line space
+\onehalfspacing 
+
+
+
+% \clearpage
+
+\section{Introduction}
+
+This package is named "\textit{AtomicReactions}".
+In atomic physics, the electron shells and their behaviour under collisions with electrons or photons are the scope of the research field. 
+This package provides commands to create term schemes for basic atomic reactions of the electron shells. 
+For electron-impact single ionisation a number of specific reactions are possible which are: 
+
+\begin{itemize}
+    \item Direct ionisation (DI)
+    \item Excitation auto-ionisation (EA)
+    \item Resonant double auto-ionisation (REDA)
+    \item Resonant auto-double-ionisation (READI)
+\end{itemize}
+
+For double and multiple ionisation dedicated processes are possible like \textit{ionisation auto-ionisation}. 
+Since the shell of an atom is a concept one can illustrate nicely by a picture, the goal of this package is to provide TikZ \cite{tikz} drawings of those processes mentioned above. 
+They are based on the drawings of Müller \cite{mueller2008} to illustrate the behaviour of the electrons in the shell for the different reactions possible. 
+
+This package also provides a classical illustration for the atomic model by Niels Bohr \cite{bohr1913}, which shows the shells and electrons in dependence of occupation and chemical element.
+The approach here is easy. In case you want to have more customisation options, please try the package \texttt{bohr} by Clemens Niederberger \cite{bohrCN}. Both packages can be used at the same time. 
+
+The \textit{AtomicReactions}-package can be loaded with the following command: 
+
+\begin{lstlisting}
+\usepackage{atomicreactions}
+\end{lstlisting}
+
+
+\section{Version History}
+
+All changes are collected in this chapter. 
+
+\subsection{Version 1.0.1 (30.05.2026)}
+
+\begin{itemize}
+    \item minor changes (licence, keywords)
+\end{itemize}
+
+\subsection{Version 1.0 (01.05.2026)}
+
+\begin{itemize}
+    \item first commit
+    \item DI, EA, REDA, READI, IA implementation
+    \item DR, TR, TC, RES, ISERAA
+\end{itemize}
+
+\section{Repository and Contact}
+
+The repository/this package is available on GitHub and through CTAN \cite{ctan} and TeXLive \cite{texlive}. You will find it here:
+
+
+\begin{itemize}
+    \item \url{https://www.ctan.org/pkg/atomicreactions}
+    \item \url{https://github.com/micheld93/atomicreactions-LaTeX/}  
+\end{itemize}
+
+
+If you have suggestions, problems or you only want to say "Hi", then contact me at \href{mailto:micheld.93@ gmail.com}{micheld.93@gmail.com}.
+
+
+\section{Future ideas}
+
+\subsection{Atomic reactions}
+
+\begin{itemize}
+	\item additional reactions (multiple ionisation by electron impact)
+	\item Auger including double auger etc.
+	\item Photoionisation
+\end{itemize}
+
+\subsection{Bohr's atomic model}
+
+\begin{itemize}
+	\item Term shematics
+	\item Adjust colors (shells)
+	\item Shell labels
+	\item Bohr and orbitals (s,p,d,f) support
+	\item Nucleus with p/n distribution with $Z$ scaling
+	\item Highlight the valence electrons
+	\item automatic scaling of shell radius ($r ~ n^2$)
+	\item Isotope support 
+\end{itemize}
+
+
+
+\section{Empty place holder}
+ 
+\begin{figure}[htp]
+\centering
+\atomEMPTY
+\caption[Just an empty place holder]{Just an empty place holder.}
+\label{pic:prozess:EMPTY-einfach}
+\end{figure}
+
+\begin{lstlisting}
+\begin{figure}[htp]
+\centering
+\atomEMPTY
+\caption[Skizze zur direkte Einfachionisation]{Skizze zur direkte Einfachionisation.}
+\label{pic:prozess:EMPTY-einfach}
+\end{figure}
+\end{lstlisting}
+
+
+
+
+
+\section{Direct ionisation (DI)}
+
+\begin{figure}[htp]
+\centering
+\atomDI
+\caption[Direct ionisation]{Direct ionisation.}
+\label{pic:prozess:DI-single}
+\end{figure}
+
+\begin{lstlisting}
+\begin{figure}[htp]
+\centering
+\atomDI
+\caption[Direct ionisation]{Direct ionisation.}
+\label{pic:prozess:DI-single}
+\end{figure}
+\end{lstlisting}
+
+
+
+
+
+
+\section{Excitation auto-ionisation (EA)}
+
+\begin{figure}[htp]
+\centering
+\atomEA
+\caption[Excitation auto-ionisation (EA)]{Excitation auto-ionisation (EA).}
+\label{pic:prozess:EA-single}
+\end{figure}
+
+\begin{lstlisting}
+\begin{figure}[htp]
+\centering
+\atomEA
+\caption[Excitation auto-ionisation (EA)]{Excitation auto-ionisation (EA).}
+\label{pic:prozess:EA-single}
+\end{figure}
+\end{lstlisting}
+
+
+
+
+
+
+
+\section{REDA and READI}
+
+READI is the abbreviation for: Resonant Excitation in Autoionizing Double Ionization
+REDA is the the abbreviation for: Resonant Excitation Double Autoionization
+
+\begin{figure}[htp]
+\centering
+\atomREDA[0.55][1.5]
+\caption[REDA and READI]{REDA and READI.}
+\label{pic:prozess:REDA-READI}
+\end{figure}
+
+\begin{lstlisting}
+\begin{figure}[htp]
+\centering
+\atomREDA[0.55][1.5]
+\caption[REDA and READI]{REDA and READI.}
+\label{pic:prozess:REDA-READI}
+\end{figure}
+\end{lstlisting}
+
+
+
+\section{Ionisation auto-ionisation (IA)}
+
+\begin{figure}[htp]
+\centering
+\atomIA
+\caption[Ionisation auto-ionisation (IA)]{Ionisation auto-ionisation (IA).}
+\label{pic:prozess:IA}
+\end{figure}
+
+\begin{lstlisting}
+\begin{figure}[htp]
+\centering
+\atomIA
+\caption[Ionisation auto-ionisation (IA)]{Ionisation auto-ionisation (IA).}
+\label{pic:prozess:IA}
+\end{figure}
+\end{lstlisting}
+
+\section{Dielectronic Recombination (DR)}
+
+\begin{figure}[htp]
+\centering
+\atomDR
+\caption[Dielectronic Recombination (DR)]{Dielectronic Recombination (DR).}
+\label{pic:prozess:DR}
+\end{figure}
+
+\begin{lstlisting}
+\begin{figure}[htp]
+\centering
+\atomIA
+\caption[Dielectronic Recombination (DR)]{Dielectronic Recombination (DR).}
+\label{pic:prozess:DR}
+\end{figure}
+\end{lstlisting}
+
+\section{Trielectronic Recombination (TR)}
+
+\begin{figure}[htp]
+\centering
+\atomTR
+\caption[Trielectronic Recombination (TR)]{Trielectronic Recombination (TR).}
+\label{pic:prozess:TR}
+\end{figure}
+
+\begin{lstlisting}
+\begin{figure}[htp]
+\centering
+\atomTR
+\caption[Trielectronic Recombination (TR)]{Trielectronic Recombination (TR).}
+\label{pic:prozess:TR}
+\end{figure}
+\end{lstlisting}
+
+
+\section{Trielectronic Capture (TC)}
+
+\begin{figure}[htp]
+\centering
+\atomTC
+\caption[Trielectronic Capture (TC)]{Trielectronic Capture (TC).}
+\label{pic:prozess:TRS}
+\end{figure}
+
+\begin{lstlisting}
+\begin{figure}[htp]
+\centering
+\atomTC
+\caption[Trielectronic Capture (TC)]{Trielectronic Capture (TC).}
+\label{pic:prozess:TC}
+\end{figure}
+\end{lstlisting}
+
+
+\section{Resonant elastic scattering (RES)}
+
+\begin{figure}[htp]
+\centering
+\atomRES
+\caption[Resonant elastic scattering (RES)]{Resonant elastic scattering (RES)n.}
+\label{pic:prozess:RES}
+\end{figure}
+
+\begin{lstlisting}
+\begin{figure}[htp]
+\centering
+\atomRES
+\caption[Resonant elastic scattering (RES)]{Resonant elastic scattering (RES)n.}
+\label{pic:prozess:RES}
+\end{figure}
+\end{lstlisting}
+
+\section{Resonant excitation (RE)}
+
+\begin{figure}[htp]
+\centering
+\atomRE
+\caption[Resonant excitation (RE)]{Resonant excitation (RE).}
+\label{pic:prozess:RE}
+\end{figure}
+
+\begin{lstlisting}
+\begin{figure}[htp]
+\centering
+\atomRE
+\caption[Resonant excitation (RE)]{Resonant excitation (RE).}
+\label{pic:prozess:RE}
+\end{figure}
+\end{lstlisting}
+
+
+
+
+\section{Inner-shell electron removal and subsequent autoionisation via Auger (ISERAA)}
+
+\begin{figure}[htp]
+\centering
+\atomISHAU
+\caption[Inner-shell electron removal and subsequent autoionisation via Auger (ISERAA)]{Inner-shell electron removal and subsequent autoionisation via Auger (ISERAA).}
+\label{pic:prozess:RE}
+\end{figure}
+
+\begin{lstlisting}
+\begin{figure}[htp]
+\centering
+\atomISHAU
+\caption[ISERAA]{ISERAA}
+\label{pic:prozess:ISERAA}
+\end{figure}
+\end{lstlisting}
+
+\clearpage
+\section{Bohr atomic model}
+
+In 1913, Nils Bohr published his groundbreaking paper on the later called "Bohr atomic model" \cite{bohr1913}, where he used a classical approach with an added discrete, quantum mechanical treatment of the angular momentum. 
+The problem was that classical electromagnetism suggested that accelerating charged particles like electrons in orbits leads to a radiative energy release. Subsequently, this would lead to electrons collapsing into the nucleus. 
+Since there were no evidence for this, new physics must be hidden. 
+Bohr proposed that electrons reside in stable, specific orbits (discrete) without radiating. Energy can only be radiated when an electron jumps between these permitted orbits (quantum leap). 
+Furthermore, he quantised the angular momentum $L$ of an electron to integer multiples of $\hbar = \frac{h}{2 \pi}$ to: $L = m \cdot v \cdot r = \frac{n \cdot h}{2 \pi}$, where $n$ is the main quantum number. 
+The model succeeded to predict the spectral lines f hydrogen (Rydberg formula) later and established the concept of atomic shells occupied by electrons ($n = 1,2,3,...$).
+As a short reminder how to derive the Bohr formula, see the last chapter \ref{ch:bohr-eq}
+If you just want to see how to use the Bohr model in this package, go to chapter \ref{ch:bohr}.
+
+
+\subsection{Usage in \textit{AtomicReactions}} \label{ch:bohr}
+ 
+\textit{AtomicReactions} provides the following command:
+ 
+ \begin{lstlisting}
+ 	\bohrModel{Xe}{5}{2,8,18,18,3}
+ \end{lstlisting}
+ 
+ which ceates this nice TikZ picture: 
+ 
+ 
+ \begin{figure}[htp]
+ 	\centering
+ 	\bohrModel{Xe}{5}{2,8,18,18,3}
+ 	\caption[Bohr model for Xe$^{5+}$]{Bohr model for Xe$^{5+}$}
+ 	\label{pic:prozess:EA-single}
+ \end{figure}
+
+The command has the following structure: 
+
+ \begin{lstlisting}
+	\bohrModel{Element-Name}{Charge}{K,L,M,N,O,P,Q}
+\end{lstlisting}
+
+As "Element-name" you can type whatever you want, but the most sense gives the common abbreviations from the periodic table. 
+Charge needs to be filled, even if you have an atom instead of an ion. 
+\textit{K,L,M,N,O,P,Q} indicates the shell name and needs to be filled with numbers. The numbers are the electrons in the specific shell. With this, you can also create pictures where an inner shell excitation is possible because inner-shell electrons are missing. 
+
+%
+\begin{table}[htp]
+	\caption{Number of electrons in each shell}
+	\label{tab:atomic-shells}
+	\begin{tabular}{cccccc}
+		\toprule
+		\begin{tabular}[c]{@{}c@{}}Shell \\ name\end{tabular} &
+		\begin{tabular}[c]{@{}c@{}}Subshell\\ name\end{tabular} &
+		\begin{tabular}[c]{@{}c@{}}Subshell\\ max. \\ electrons\end{tabular} &
+		\begin{tabular}[c]{@{}c@{}}Shell \\ max.\\ electrons\end{tabular} &
+		\begin{tabular}[c]{@{}c@{}}Subshell\\ label\end{tabular} &
+		\begin{tabular}[c]{@{}c@{}}Angular momentum \\ $\ell$\end{tabular} \\ \midrule
+		K                  & 1s & 2  & 2                   & s                    & 0                    \\ \addlinespace
+		\multirow{2}{*}{L} & 2s & 2  & \multirow{2}{*}{8}  &                      &                      \\
+		& 2p & 6  &                     & p                    & 1                    \\
+		\multirow{3}{*}{M} & 3s & 2  & \multirow{3}{*}{18} &                      &                      \\ \addlinespace
+		& 3p & 6  &                     & d                    & 2                    \\
+		& 3d & 10 &                     &                      &                      \\
+		\multirow{4}{*}{N} & 4s & 2  & \multirow{4}{*}{32} & f                    & 3                    \\ \addlinespace
+		& 4p & 6  &                     &                      &                      \\
+		& 4d & 10 &                     & g                    & 4                    \\
+		& 4f & 14 &                     & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} \\
+		\multirow{5}{*}{O} & 5s & 2  & \multirow{5}{*}{50} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} \\ \addlinespace
+		& 5p & 6  &                     & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} \\
+		& 5d & 10 &                     & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} \\
+		& 5f & 14 &                     & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} \\
+		& 5g & 18 &                     & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} \\ \bottomrule 
+	\end{tabular}
+\end{table}
+
+\subsection{Derivation of the Bohr Radius} \label{ch:bohr-eq}
+
+For an electron orbiting a nucleus, the Coulomb force provides the centripetal force:
+
+\begin{equation}
+	\frac{m_e v^2}{r} = \frac{1}{4\pi\epsilon_0}\frac{e^2}{r^2} \,\,\, \Leftrightarrow \,\,\, m_e v^2 = \frac{1}{4\pi\epsilon_0}\frac{e^2}{r}
+\end{equation}
+
+
+With Bohr's momentum quantization (Quantum mechanics!): $L \, = \, m_e v r = \frac{n \cdot h}{2 \pi} \, = \, n \hbar$
+
+
+\begin{equation}
+	v = \frac{n\hbar}{m_e r}
+\end{equation}
+
+Substitute the velocity in the force equation:
+
+\begin{equation}
+	m_e \left(\frac{n\hbar}{m_e r}\right)^2
+	=
+	\frac{1}{4\pi\epsilon_0}\frac{e^2}{r}
+\end{equation}
+
+Expand this:
+
+\begin{equation}
+	\frac{n^2 \hbar^2}{m_e r^2}
+	=
+	\frac{1}{4\pi\epsilon_0}\frac{e^2}{r} \,\,\, \Leftrightarrow \,\,\, \frac{n^2 \hbar^2}{m_e}
+	=
+	\frac{1}{4\pi\epsilon_0} e^2 r
+\end{equation}
+
+Solve for $r$:
+
+\begin{equation}
+	r_n =
+	\frac{4\pi\epsilon_0 n^2 \hbar^2}{m_e e^2} = n^2 a_0
+\end{equation}
+
+where the Bohr radius $a_0$ is
+
+\begin{equation}
+	a_0 =
+	\frac{4\pi\epsilon_0 \hbar^2}{m_e e^2}
+	\approx 5.29 \times 10^{-11}\,\mathrm{m}
+\end{equation}
+
+
+\subsection{Derivation of the Bohr Energy Levels}
+
+The kinetic energy is
+
+\begin{equation}
+	T = \frac{1}{2}m_e v^2
+\end{equation}
+
+From the force equation (Eq. 8):
+
+\begin{equation}
+	m_e v^2
+	=
+	\frac{1}{4\pi\epsilon_0}\frac{e^2}{r}
+\end{equation}
+
+Thus:
+
+\begin{equation}
+	T
+	=
+	\frac{1}{2}
+	\frac{1}{4\pi\epsilon_0}
+	\frac{e^2}{r}
+\end{equation}
+
+The electrostatic potential energy is
+
+\begin{equation}
+	V
+	=
+	-
+	\frac{1}{4\pi\epsilon_0}
+	\frac{e^2}{r}
+\end{equation}
+
+\subsubsection*{Total Energy}
+
+The total energy is
+
+\begin{equation}
+	E = T + V
+\end{equation}
+
+Substitute $T$ and $V$:
+
+\begin{equation}
+	E
+	=
+	\frac{1}{2}
+	\frac{1}{4\pi\epsilon_0}
+	\frac{e^2}{r}
+	-
+	\frac{1}{4\pi\epsilon_0}
+	\frac{e^2}{r}
+\end{equation}
+
+\begin{equation}
+	E
+	=
+	-
+	\frac{1}{2}
+	\frac{1}{4\pi\epsilon_0}
+	\frac{e^2}{r}
+\end{equation}
+
+Now substitute $r_n$:
+
+\begin{equation}
+	r_n
+	=
+	\frac{4\pi\epsilon_0 n^2 \hbar^2}{m_e e^2}
+\end{equation}
+
+Then we get the following with substitution of $r_n$::
+
+\begin{equation}
+	E_n
+	=
+	-
+	\frac{1}{2}
+	\frac{1}{4\pi\epsilon_0}
+	\frac{e^2}{r_n}
+	\Rightarrow E_n = - \frac{m_e e^4}{2(4\pi\epsilon_0)^2 \hbar^2}\frac{1}{n^2}
+\end{equation}
+
+Thus the Bohr energy levels for hydrogen are:
+
+\begin{equation}
+	E_n
+	=
+	-
+	\frac{13.6}{n^2}\,\mathrm{eV}
+\end{equation}
+
+
+% #####################
+% # Table of listings #
+% #####################
+
+% \lstlistoflistings
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+% ##########################
+% # Literature with BibTeX #
+% ##########################
+
+
+    \cleardoublepage
+    \bibliography{atomicreactions.bib}
+    \bibliographystyle{babunsrt-fl}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+\end{document}
