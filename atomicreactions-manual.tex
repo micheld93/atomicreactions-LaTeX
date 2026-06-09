@@ -55,7 +55,7 @@ language=[LaTeX],
     keywordstyle=\color{magenta},
     numberstyle=\tiny\color{codegray},
     stringstyle=\color{codepurple},
-    basicstyle=\footnotesize,
+    basicstyle=\ttfamily\footnotesize,
     breakatwhitespace=false,         
     breaklines=true,                 
     captionpos=b,                    
@@ -67,6 +67,7 @@ language=[LaTeX],
     showtabs=false,                  
     tabsize=2
 }
+\lstset{style=mystyle}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -151,7 +152,7 @@ The \textit{AtomicReactions}-package can be loaded with the following command:
 
 \section{Version History}
 
-All changes are collected in this chapter. 
+All changes are collected in this section.
 
 \subsection{Version 1.0.1 (30.05.2026)}
 
@@ -178,7 +179,7 @@ The repository/this package is available on GitHub and through CTAN \cite{ctan} 
 \end{itemize}
 
 
-If you have suggestions, problems or you only want to say "Hi", then contact me at \href{mailto:micheld.93@ gmail.com}{micheld.93@gmail.com}.
+If you have suggestions, problems or you only want to say ``Hi'', then contact me at \href{mailto:micheld.93@ gmail.com}{micheld.93@gmail.com}.
 
 
 \section{Future ideas}
@@ -219,7 +220,7 @@ If you have suggestions, problems or you only want to say "Hi", then contact me 
 \begin{figure}[htp]
 \centering
 \atomEMPTY
-\caption[Skizze zur direkte Einfachionisation]{Skizze zur direkte Einfachionisation.}
+\caption[Just an empty place holder]{Just an empty place holder.}
 \label{pic:prozess:EMPTY-einfach}
 \end{figure}
 \end{lstlisting}
@@ -277,8 +278,8 @@ If you have suggestions, problems or you only want to say "Hi", then contact me 
 
 \section{REDA and READI}
 
-READI is the abbreviation for: Resonant Excitation in Autoionizing Double Ionization
-REDA is the the abbreviation for: Resonant Excitation Double Autoionization
+READI is the abbreviation for: Resonant Excitation in Autoionizing Double Ionization.
+REDA is the abbreviation for: Resonant Excitation Double Autoionization.
 
 \begin{figure}[htp]
 \centering
@@ -377,7 +378,7 @@ REDA is the the abbreviation for: Resonant Excitation Double Autoionization
 \begin{figure}[htp]
 \centering
 \atomRES
-\caption[Resonant elastic scattering (RES)]{Resonant elastic scattering (RES)n.}
+\caption[Resonant elastic scattering (RES)]{Resonant elastic scattering (RES).}
 \label{pic:prozess:RES}
 \end{figure}
 
@@ -385,7 +386,7 @@ REDA is the the abbreviation for: Resonant Excitation Double Autoionization
 \begin{figure}[htp]
 \centering
 \atomRES
-\caption[Resonant elastic scattering (RES)]{Resonant elastic scattering (RES)n.}
+\caption[Resonant elastic scattering (RES)]{Resonant elastic scattering (RES).}
 \label{pic:prozess:RES}
 \end{figure}
 \end{lstlisting}
@@ -437,9 +438,9 @@ The problem was that classical electromagnetism suggested that accelerating char
 Since there were no evidence for this, new physics must be hidden. 
 Bohr proposed that electrons reside in stable, specific orbits (discrete) without radiating. Energy can only be radiated when an electron jumps between these permitted orbits (quantum leap). 
 Furthermore, he quantised the angular momentum $L$ of an electron to integer multiples of $\hbar = \frac{h}{2 \pi}$ to: $L = m \cdot v \cdot r = \frac{n \cdot h}{2 \pi}$, where $n$ is the main quantum number. 
-The model succeeded to predict the spectral lines f hydrogen (Rydberg formula) later and established the concept of atomic shells occupied by electrons ($n = 1,2,3,...$).
-As a short reminder how to derive the Bohr formula, see the last chapter \ref{ch:bohr-eq}
-If you just want to see how to use the Bohr model in this package, go to chapter \ref{ch:bohr}.
+The model succeeded to predict the spectral lines of hydrogen (Rydberg formula) later and established the concept of atomic shells occupied by electrons ($n = 1,2,3,\ldots$).
+As a short reminder how to derive the Bohr formula, see the last subsection \ref{ch:bohr-eq}.
+If you just want to see how to use the Bohr model in this package, go to subsection \ref{ch:bohr}.
 
 
 \subsection{Usage in \textit{AtomicReactions}} \label{ch:bohr}
@@ -450,7 +451,7 @@ If you just want to see how to use the Bohr model in this package, go to chapter
  	\bohrModel{Xe}{5}{2,8,18,18,3}
  \end{lstlisting}
  
- which ceates this nice TikZ picture: 
+ which creates this nice TikZ picture:
  
  
  \begin{figure}[htp]
@@ -505,7 +506,7 @@ Charge needs to be filled, even if you have an atom instead of an ion.
 For an electron orbiting a nucleus, the Coulomb force provides the centripetal force:
 
 \begin{equation}
-	\frac{m_e v^2}{r} = \frac{1}{4\pi\epsilon_0}\frac{e^2}{r^2} \,\,\, \Leftrightarrow \,\,\, m_e v^2 = \frac{1}{4\pi\epsilon_0}\frac{e^2}{r}
+	\frac{m_e v^2}{r} = \frac{1}{4\pi\epsilon_0}\frac{e^2}{r^2} \iff m_e v^2 = \frac{1}{4\pi\epsilon_0}\frac{e^2}{r}
 \end{equation}
 
 
@@ -529,7 +530,7 @@ Expand this:
 \begin{equation}
 	\frac{n^2 \hbar^2}{m_e r^2}
 	=
-	\frac{1}{4\pi\epsilon_0}\frac{e^2}{r} \,\,\, \Leftrightarrow \,\,\, \frac{n^2 \hbar^2}{m_e}
+	\frac{1}{4\pi\epsilon_0}\frac{e^2}{r} \iff \frac{n^2 \hbar^2}{m_e}
 	=
 	\frac{1}{4\pi\epsilon_0} e^2 r
 \end{equation}
@@ -624,7 +625,7 @@ Now substitute $r_n$:
 	\frac{4\pi\epsilon_0 n^2 \hbar^2}{m_e e^2}
 \end{equation}
 
-Then we get the following with substitution of $r_n$::
+Then we get the following with substitution of $r_n$:
 
 \begin{equation}
 	E_n
@@ -633,7 +634,7 @@ Then we get the following with substitution of $r_n$::
 	\frac{1}{2}
 	\frac{1}{4\pi\epsilon_0}
 	\frac{e^2}{r_n}
-	\Rightarrow E_n = - \frac{m_e e^4}{2(4\pi\epsilon_0)^2 \hbar^2}\frac{1}{n^2}
+	\implies E_n = - \frac{m_e e^4}{2(4\pi\epsilon_0)^2 \hbar^2}\frac{1}{n^2}
 \end{equation}
 
 Thus the Bohr energy levels for hydrogen are:
